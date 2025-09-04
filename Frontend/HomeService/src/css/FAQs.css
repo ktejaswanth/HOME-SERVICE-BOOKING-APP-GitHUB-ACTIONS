@@ -1,0 +1,107 @@
+/* FAQs.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.faq-header {
+  background-color: #003366;
+  color: white;
+  padding: 20px 40px;
+  text-align: center;
+}
+
+.platform-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Navigation Bar */
+.nav-bar {
+  background-color: #00509e;
+  padding: 10px 40px;
+}
+
+.nav-item {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  margin-right: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background-color: #0074d9;
+}
+
+/* Main Section */
+.faq-main {
+  flex-grow: 1;
+  padding: 40px 20px;
+  background-color: white;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.faq-title {
+  font-size: 32px;
+  color: #003366;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  background-color: #ccc;
+  margin-bottom: 30px;
+}
+
+/* FAQ Grid */
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.faq-item {
+  background-color: #f0f4f8;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h3 {
+  color: #003366;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.faq-item p {
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.5;
+}
+
+/* Footer */
+.faq-footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: auto;
+}

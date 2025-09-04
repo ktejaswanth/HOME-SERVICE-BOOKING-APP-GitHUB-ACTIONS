@@ -1,0 +1,41 @@
+.container {
+  max-width: 95%;
+  margin: auto;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+th, td {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+thead {
+  background-color: #007bff;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}

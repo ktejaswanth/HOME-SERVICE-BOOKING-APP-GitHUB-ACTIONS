@@ -1,0 +1,113 @@
+/* Feedback.css */
+
+.fb-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f0f4f8;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.fb-header {
+  background-color: #0066cc;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-bar {
+  background-color: #e3f2fd;
+  padding: 10px;
+  text-align: center;
+}
+
+.nav-bar a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 15px;
+}
+
+.nav-bar a:hover {
+  text-decoration: underline;
+}
+
+.fb-card {
+  background-color: white;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.fb-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.fb-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.fb-textarea {
+  height: 120px;
+  resize: none;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.fb-input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.fb-button {
+  background-color: #0066cc;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.fb-button:hover {
+  background-color: #004999;
+}
+
+.fb-error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.fb-success {
+  color: green;
+  font-size: 0.95rem;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.fb-footer {
+  background-color: #0066cc;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: auto;
+  font-size: 0.9rem;
+}

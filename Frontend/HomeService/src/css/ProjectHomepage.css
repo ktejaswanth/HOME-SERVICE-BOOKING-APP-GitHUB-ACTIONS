@@ -1,0 +1,184 @@
+/* ProjectHomepage.css */
+
+.container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f7f9fc;
+  padding: 20px;
+  text-align: center;
+  min-height: 100vh;
+  background-image: url('../images/1.jpg'); /* adjust path if needed */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh; /* ensure it covers full viewport height */
+  width: 100%;
+
+}
+
+.header {
+  background-color: #3c6db6;
+  color: white;
+  padding: 20px 0;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.logo-placeholder {
+  height: 60px;
+  background: url('../images/logo.png') no-repeat center center;
+  background-size: contain;
+  margin-bottom: 10px;
+}
+
+.main-content h2 {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #004d4d;
+}
+
+.slogan {
+  font-style: italic;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.nav-buttons {
+  margin-bottom: 30px;
+}
+
+.nav-buttons button {
+  background-color: #004d4d;
+  color: white;
+  border: none;
+  margin: 5px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.nav-buttons button:hover {
+  background-color: #006666;
+}
+
+.services {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.service-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  padding: 20px;
+  text-align: left;
+}
+
+.service-header {
+  font-size: 18px;
+  font-weight: bold;
+  color: #008080;
+  margin-bottom: 10px;
+}
+
+#popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popupWindow {
+  background-color: #fff;
+  padding: 20px ;
+  border-radius: 8px;
+  width: 350px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: left;
+}
+
+#popupHeader {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #004d4d;
+}
+
+.popupWindow label {
+  display: block;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.popupWindow input,
+.popupWindow select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.signinButton,
+.signupButton {
+  width: 100%;
+  background-color: #008080;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.signinButton:hover,
+.signupButton:hover {
+  background-color: #006666;
+}
+
+.switch-link {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.switch-link span {
+  color: #008080;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footer {
+  margin-top: 40px;
+  padding: 10px 0;
+  background-color: #17dada;
+  color: #333;
+  border-top: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.service-card img.feature-icon {
+  width: 100%;
+  max-width: 200px;
+  height:fit-content;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.service-card img.feature-icon:hover {
+  transform: scale(1.05);
+}

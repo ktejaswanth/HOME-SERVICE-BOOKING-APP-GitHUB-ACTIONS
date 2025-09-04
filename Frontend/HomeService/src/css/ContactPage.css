@@ -1,0 +1,107 @@
+/* ContactPage.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #333;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contact-header {
+  background-color: #2e86de;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px
+}
+
+
+
+.top-nav {
+  display: flex;
+  justify-content: flex-start;
+  padding: 15px 30px;
+  background: #dff0ff;
+}
+
+.home-btn {
+  background-color: #2e86de;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.home-btn:hover {
+  background-color: #1b4f72;
+}
+
+.contact-form {
+  flex-grow: 1;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+  text-align: center;
+  color: #2e86de;
+  margin-bottom: 25px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #2e86de;
+  outline: none;
+}
+
+.send-btn {
+  width: 100%;
+  background-color: #2e86de;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.send-btn:hover {
+  background-color: #1b4f72;
+}
+
+.contact-footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #2e86de;
+  color: white;
+  font-size: 0.9rem;
+  margin-top: auto;
+}

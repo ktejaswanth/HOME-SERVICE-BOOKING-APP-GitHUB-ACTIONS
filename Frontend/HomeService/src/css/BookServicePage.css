@@ -1,0 +1,108 @@
+/* Container */
+.book-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header */
+  .book-header {
+    background-color: #34495e; /* Blue-gray */
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .banner {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .home-btn {
+    background-color: white;
+    color: #34495e;
+    padding: 8px 16px;
+    border: 2px solid #34495e;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .home-btn:hover {
+    background-color: #2c3e50;
+    color: white;
+  }
+  
+  /* Form title */
+  .form-title {
+    text-align: center;
+    margin: 30px 0 10px;
+    color: #2c3e50;
+    font-size: 28px;
+  }
+  
+  /* Form styling */
+  .book-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .book-form label {
+    font-weight: 600;
+    color: #34495e;
+  }
+  
+  .book-form input,
+  .book-form select {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .book-form input:focus,
+  .book-form select:focus {
+    border-color: #3498db;
+  }
+  
+  /* Submit button */
+  .submit-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Footer */
+  .book-footer {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+  }
+  

@@ -1,0 +1,121 @@
+/* Hirers.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+}
+
+.hirer-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.hirer-header {
+  background-color: #003366;
+  color: white;
+  padding: 20px 40px;
+  text-align: center;
+}
+
+.platform-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Navigation Bar */
+.nav-bar {
+  background-color: #00509e;
+  padding: 10px 40px;
+}
+
+.nav-item {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  margin-right: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav-item:hover {
+  background-color: #0074d9;
+}
+
+/* Form Section */
+.form-section {
+  flex-grow: 1;
+  background-color: white;
+  padding: 40px 20px;
+  max-width: 600px;
+  margin: 30px auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.form-section h2 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 30px;
+}
+
+.hirer-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.hirer-form label {
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: 500;
+}
+
+.hirer-form input[type="text"],
+.hirer-form input[type="email"],
+.hirer-form input[type="file"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.hirer-form input[type="file"] {
+  padding: 6px;
+}
+
+.hirer-form button {
+  background-color: #00509e;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hirer-form button:hover {
+  background-color: #003f7f;
+}
+
+.response-note {
+  margin-top: 20px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Footer */
+.hirer-footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: auto;
+}

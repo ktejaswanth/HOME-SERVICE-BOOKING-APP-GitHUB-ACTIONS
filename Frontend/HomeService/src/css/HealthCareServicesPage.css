@@ -1,0 +1,106 @@
+/* Container styling */
+.healthcare-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header */
+  .healthcare-header {
+    background-color: #4B6CB7;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .banner {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .home-btn {
+    background-color: white;
+    color: #4B6CB7;
+    padding: 8px 16px;
+    border: 2px solid #4B6CB7;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .home-btn:hover {
+    background-color: #3A52A1;
+    color: white;
+  }
+  
+  /* Tagline */
+  .tagline {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 18px;
+    font-style: italic;
+    color: #333;
+  }
+  
+  /* Grid for services */
+  .healthcare-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Individual tile */
+  .service-tile {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  
+  .service-tile:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Placeholder image */
+  .img-placeholder img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  /* Service button */
+  .service-btn {
+    background-color: #4B6CB7;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .service-btn:hover {
+    background-color: #3A52A1;
+  }
+  
+  /* Footer */
+  .healthcare-footer {
+    background-color: #4B6CB7;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+  }
+  
