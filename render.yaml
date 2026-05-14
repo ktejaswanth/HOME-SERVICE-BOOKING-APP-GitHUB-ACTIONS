@@ -2,7 +2,7 @@ services:
   # Backend: Spring Boot App
   - type: web
     name: homeserve-backend
-    env: docker
+    runtime: docker
     plan: free
     region: singapore
     dockerContext: Backend
@@ -24,18 +24,19 @@ services:
       - key: APP_CORS_ALLOWED_ORIGINS
         fromService:
           name: homeserve-frontend
-          type: static_site
+          type: web
           property: host
       - key: PORT
         value: 10000
 
-staticSites:
   # Frontend: React (Vite) App
-  - name: homeserve-frontend
+  - type: web
+    name: homeserve-frontend
+    runtime: static
     plan: free
     region: singapore
     buildCommand: cd Frontend && npm install && npm run build
-    publishPath: Frontend/dist
+    staticPublishPath: Frontend/dist
     envVars:
       - key: VITE_SUPABASE_URL
         sync: false
