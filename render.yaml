@@ -24,14 +24,14 @@ services:
       - key: APP_CORS_ALLOWED_ORIGINS
         fromService:
           name: homeserve-frontend
-          type: static
+          type: static_site
           property: host
       - key: PORT
         value: 10000
 
+staticSites:
   # Frontend: React (Vite) App
-  - type: static_site
-    name: homeserve-frontend
+  - name: homeserve-frontend
     plan: free
     region: singapore
     buildCommand: cd Frontend && npm install && npm run build
