@@ -30,7 +30,7 @@ services:
         value: 10000
 
   # Frontend: React (Vite) App
-  - type: static
+  - type: web
     name: homeserve-frontend
     env: static
     plan: free
