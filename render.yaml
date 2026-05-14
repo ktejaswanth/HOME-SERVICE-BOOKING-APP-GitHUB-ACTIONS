@@ -30,9 +30,8 @@ services:
         value: 10000
 
   # Frontend: React (Vite) App
-  - type: web
+  - type: static_site
     name: homeserve-frontend
-    env: static
     plan: free
     region: singapore
     buildCommand: cd Frontend && npm install && npm run build
