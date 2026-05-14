@@ -1,38 +1,40 @@
 package klu.model;
+
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import java.time.OffsetDateTime;
+import java.util.UUID;
 
 @Entity
+@Table(name = "feedback")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Feedback {
-	 @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long id;
 
-	    private String email;
-	    private String message;
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
-	    public Long getId() {
-	        return id;
-	    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private Profile user;
 
-	    public void setId(Long id) {
-	        this.id = id;
-	    }
+    @Column(nullable = false)
+    private String email;
 
-	    public String getEmail() {
-	    	
-	        return email;
-	    }
+    @Column(nullable = false)
+    private String message;
 
-	    public void setEmail(String email) {
-	        this.email = email;
-	    }
+    private String status = "open"; // open, in_progress, resolved
 
-	    public String getMessage() {
-	        return message;
-	    }
+    @Column(name = "created_at")
+    private OffsetDateTime createdAt;
 
-	    public void setMessage(String message) {
-	        this.message = message;
-	    }
-
+    @PrePersist
+    protected void onCreate() {
+        createdAt = OffsetDateTime.now();
+    }
 }

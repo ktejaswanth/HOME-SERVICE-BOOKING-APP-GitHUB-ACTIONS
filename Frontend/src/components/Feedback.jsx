@@ -17,7 +17,7 @@ const Feedback = () => {
     }
 
     try {
-      await axios.post('http://localhost:8080/feedback/send', {
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/feedback/send`, {
         email,
         message: feedback
       });

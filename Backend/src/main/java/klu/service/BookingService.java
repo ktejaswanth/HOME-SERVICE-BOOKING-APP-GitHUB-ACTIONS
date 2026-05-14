@@ -24,12 +24,13 @@ public class BookingService {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom("ktejaswanth05@gmail.com");
-            message.setTo(booking.getPhone() + "@example.com"); // Replace with actual email
-            message.setSubject("Service Booking Confirmation");
-            message.setText("Dear " + booking.getName() + ",\n\nYour booking is confirmed for " +
-                booking.getDate() + " at " + booking.getTime() +
-                "\nService: " + booking.getService() +
-                "\nTotal: ₹" + booking.getTotal());
+            message.setTo(booking.getCustomer().getEmail()); 
+            message.setSubject("Service Booking Confirmation - HomeServe");
+            message.setText("Dear " + booking.getCustomer().getFullName() + ",\n\n" +
+                "Your booking is confirmed for " + booking.getBookingDate() + " at " + booking.getBookingTime() + ".\n" +
+                "Service: " + booking.getService().getName() + "\n" +
+                "Total Amount: ₹" + booking.getTotalPrice() + "\n\n" +
+                "Thank you for choosing HomeServe!");
 
             mailSender.send(message);
         } catch (Exception e) {

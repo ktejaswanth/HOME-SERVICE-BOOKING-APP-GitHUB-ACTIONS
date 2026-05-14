@@ -6,7 +6,7 @@ const AdminBooking = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/admin/bookings") // Adjust if using a proxy
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/admin/bookings`) // Adjust if using a proxy
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch bookings");
         return res.json();

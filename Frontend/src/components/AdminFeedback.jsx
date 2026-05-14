@@ -7,7 +7,7 @@ const AdminFeedback = () => {
 
   useEffect(() => {
     // Fetch feedback data from backend API
-    fetch("http://localhost:8080/feedback/all")
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/feedback/all`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch feedbacks");

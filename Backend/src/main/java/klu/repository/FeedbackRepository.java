@@ -1,8 +1,13 @@
 package klu.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import klu.model.Feedback;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+import java.util.UUID;
 
-public interface FeedbackRepository extends JpaRepository<Feedback, Long>{
-
+@Repository
+public interface FeedbackRepository extends JpaRepository<Feedback, UUID> {
+    List<Feedback> findByStatus(String status);
+    List<Feedback> findAllByOrderByCreatedAtDesc();
 }
