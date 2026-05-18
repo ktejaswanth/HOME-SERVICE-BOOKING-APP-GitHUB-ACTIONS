@@ -81,3 +81,54 @@ jobs:
           echo "Deploying to production server..."
           # Add ssh deployment steps here if needed
           # ssh user@host "docker-compose pull && docker-compose up -d"
+
+  notify-success:
+    name: Notify CI/CD Success
+    needs: [lint-and-test, security-scan, build-and-push, deploy]
+    runs-on: ubuntu-latest
+    if: success()
+    steps:
+      - name: Send Success Mail
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "🚀 Deployment Successful: ${{ github.repository }}"
+          to: ${{ secrets.EMAIL_TO }}
+          from: "CI/CD Pipeline <${{ secrets.EMAIL_USERNAME }}>"
+          html_body: |
+            <h2>🚀 Deployment & Build Completed Successfully!</h2>
+            <p><strong>Repository:</strong> ${{ github.repository }}</p>
+            <p><strong>Branch:</strong> ${{ github.ref_name }}</p>
+            <p><strong>Commit:</strong> ${{ github.sha }}</p>
+            <p><strong>Author:</strong> ${{ github.actor }}</p>
+            <p>The code has passed all checks, security scans, Docker image builds, and has been successfully deployed to production!</p>
+            <p><a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" style="display:inline-block;padding:10px 20px;background-color:#28a745;color:white;text-decoration:none;border-radius:5px;">View Action Run Logs</a></p>
+
+  notify-failure:
+    name: Notify CI/CD Failure
+    needs: [lint-and-test, security-scan, build-and-push, deploy]
+    runs-on: ubuntu-latest
+    if: failure()
+    steps:
+      - name: Send Failure Mail
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "🚨 Deployment Failed: ${{ github.repository }}"
+          to: ${{ secrets.EMAIL_TO }}
+          from: "CI/CD Pipeline <${{ secrets.EMAIL_USERNAME }}>"
+          html_body: |
+            <h2>⚠️ CI/CD Pipeline Build Failed!</h2>
+            <p><strong>Repository:</strong> ${{ github.repository }}</p>
+            <p><strong>Branch:</strong> ${{ github.ref_name }}</p>
+            <p><strong>Commit:</strong> ${{ github.sha }}</p>
+            <p><strong>Author:</strong> ${{ github.actor }}</p>
+            <p>One or more stages of the CI/CD pipeline failed. Please check the logs immediately to resolve the issues.</p>
+            <p><a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" style="display:inline-block;padding:10px 20px;background-color:#dc3545;color:white;text-decoration:none;border-radius:5px;">View Action Run Logs</a></p>
+

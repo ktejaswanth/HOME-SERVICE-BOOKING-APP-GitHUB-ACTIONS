@@ -1,0 +1,89 @@
+name: PR AI Review & Verification
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  pr-validate:
+    name: Verify PR Build & Code Quality
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Frontend Verification
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: Frontend/package-lock.json
+
+      - name: Frontend - Verify Build
+        run: |
+          cd Frontend
+          npm ci
+          npm run lint
+          npm run build
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+
+      # Backend Verification
+      - name: Setup JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Backend - Run Tests & Checks
+        run: |
+          cd Backend
+          mvn clean test checkstyle:check
+
+  notify-pr-status:
+    name: Notify PR Status via Email
+    needs: pr-validate
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Send Success Mail
+        if: ${{ needs.pr-validate.result == 'success' }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "✅ PR Review Passed: [${{ github.event.pull_request.title }}]"
+          to: ${{ secrets.EMAIL_TO }}
+          from: "GitHub Actions <${{ secrets.EMAIL_USERNAME }}>"
+          html_body: |
+            <h2>🎉 PR Build & Checkstyle Verification Passed!</h2>
+            <p><strong>Repository:</strong> ${{ github.repository }}</p>
+            <p><strong>Pull Request:</strong> <a href="${{ github.event.pull_request.html_url }}">#${{ github.event.pull_request.number }} - ${{ github.event.pull_request.title }}</a></p>
+            <p><strong>Author:</strong> ${{ github.event.pull_request.user.login }}</p>
+            <p><strong>Commit:</strong> ${{ github.event.pull_request.head.sha }}</p>
+            <p>CodeRabbit is currently reviewing this PR. All initial CI checks passed successfully!</p>
+            <p><a href="${{ github.event.pull_request.html_url }}" style="display:inline-block;padding:10px 20px;background-color:#28a745;color:white;text-decoration:none;border-radius:5px;">View Pull Request</a></p>
+
+      - name: Send Failure Mail
+        if: ${{ needs.pr-validate.result == 'failure' }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "❌ PR Review Failed: [${{ github.event.pull_request.title }}]"
+          to: ${{ secrets.EMAIL_TO }}
+          from: "GitHub Actions <${{ secrets.EMAIL_USERNAME }}>"
+          html_body: |
+            <h2>⚠️ PR Build or Checkstyle Verification Failed!</h2>
+            <p><strong>Repository:</strong> ${{ github.repository }}</p>
+            <p><strong>Pull Request:</strong> <a href="${{ github.event.pull_request.html_url }}">#${{ github.event.pull_request.number }} - ${{ github.event.pull_request.title }}</a></p>
+            <p><strong>Author:</strong> ${{ github.event.pull_request.user.login }}</p>
+            <p>Please check the build logs to fix the failures before merging.</p>
+            <p><a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" style="display:inline-block;padding:10px 20px;background-color:#dc3545;color:white;text-decoration:none;border-radius:5px;">View Action Run Logs</a></p>
